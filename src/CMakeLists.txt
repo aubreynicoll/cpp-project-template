@@ -1,8 +1,14 @@
+configure_file(cmakevars.h.in cmakevars.h)
+
 list(APPEND FILES
 	main.cpp
 )
 
-# build & link target
-add_executable(a.out ${FILES})
-target_link_libraries(a.out PUBLIC compile_flags)
-target_include_directories(a.out PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+add_executable(${binary_name} ${FILES})
+target_link_libraries(${binary_name} PUBLIC ${LIBS})
+target_include_directories(${binary_name} PUBLIC
+	${CMAKE_CURRENT_SOURCE_DIR}
+	${CMAKE_BINARY_DIR}/src # cmakevars.h
+)
+
+install(TARGETS ${binary_name} DESTINATION bin)

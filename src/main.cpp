@@ -1,7 +1,9 @@
+#include <cmakevars.h>
+
 #include <iostream>
 
-using namespace std;
-
 int main() {
-	cout << "hello world!\n";
+	std::cout << "cpp project template v" << MAJOR_VERSION << "."
+		  << MINOR_VERSION << "\n"
+		  << "hello world!\n";
 }
