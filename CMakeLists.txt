@@ -1,10 +1,13 @@
 cmake_minimum_required(VERSION 3.26.3)
 project(temp VERSION 1.0.0)
 
+# prevent accidentally building in src or root
+if(${CMAKE_BINARY_DIR} STREQUAL ${CMAKE_SOURCE_DIR} OR ${CMAKE_BINARY_DIR} STREQUAL ${CMAKE_SOURCE_DIR}/src)
+	message(FATAL_ERROR "building in root or src dir disallowed")
+endif()
+
 # export for clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
-
-set(binary_name temp)
 
 add_library(compile_flags INTERFACE)
 list(APPEND LIBS compile_flags)

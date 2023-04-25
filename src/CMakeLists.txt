@@ -4,11 +4,11 @@ list(APPEND FILES
 	main.cpp
 )
 
-add_executable(${binary_name} ${FILES})
-target_link_libraries(${binary_name} PUBLIC ${LIBS})
-target_include_directories(${binary_name} PUBLIC
+add_executable(${CMAKE_PROJECT_NAME} ${FILES})
+target_link_libraries(${CMAKE_PROJECT_NAME} PUBLIC ${LIBS})
+target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC
 	${CMAKE_CURRENT_SOURCE_DIR}
 	${CMAKE_BINARY_DIR}/src # cmakevars.h
 )
 
-install(TARGETS ${binary_name} DESTINATION bin)
+install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION bin)
