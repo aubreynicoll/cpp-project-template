@@ -12,7 +12,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 add_library(compile_flags INTERFACE)
 list(APPEND LIBS compile_flags)
 
-target_compile_features(compile_flags INTERFACE cxx_std_17)
+target_compile_features(compile_flags INTERFACE cxx_std_20)
 
 # add warnings if gcc or clang
 set(is_gcc_like "$<COMPILE_LANG_AND_ID:CXX,AppleClang,Clang,GNU>")
