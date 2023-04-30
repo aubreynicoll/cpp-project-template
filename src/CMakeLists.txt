@@ -1,5 +1,8 @@
 configure_file(cmakevars.h.in cmakevars.h)
 
+find_package(ZLIB REQUIRED)
+list(APPEND LIBS ZLIB::ZLIB)
+
 list(APPEND FILES
 	main.cpp
 )
