@@ -17,20 +17,13 @@ set(CMAKE_MAP_IMPORTED_CONFIG_UBSAN RELEASE)
 # export for clangd and other variables
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 set(is_gcc_like "$<COMPILE_LANG_AND_ID:CXX,AppleClang,Clang,GNU>")
-set(is_debug "$<CONFIG:Debug,RelWithDebInfo>")
-
-# set up interface libraries for appending flags
-add_library(compile_flags INTERFACE)
-list(APPEND LIBS compile_flags)
-add_library(link_flags INTERFACE)
-list(APPEND LIBS link_flags)
 
 # C++ std
-target_compile_features(compile_flags INTERFACE cxx_std_20)
+set(CMAKE_CXX_STANDARD_REQUIRED 20)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 if(is_gcc_like)
-	# error on warning for gcc & clang
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -Werror")
 
 	# handle Sanitizer flags
 	set(CMAKE_CXX_FLAGS_ASAN "${CMAKE_CXX_FLAGS_DEBUG} -fsanitize=address")
