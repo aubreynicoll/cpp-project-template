@@ -9,4 +9,6 @@ AlignConsecutiveDeclarations: AcrossComments
 AlignConsecutiveMacros: Consecutive
 AlignAfterOpenBracket: Align
 InsertBraces: true
-BreakBeforeBraces: Attach 
+BreakBeforeBraces: Attach
+PointerAlignment: Right
+ReferenceAlignment: Pointer
