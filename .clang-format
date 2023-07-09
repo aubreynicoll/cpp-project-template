@@ -13,3 +13,5 @@ BreakBeforeBraces: Attach
 PointerAlignment: Right
 ReferenceAlignment: Pointer
 AccessModifierOffset: -4
+SeparateDefinitionBlocks: Always
+
